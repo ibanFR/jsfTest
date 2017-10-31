@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/default_template.html">
+
+	<ui:define name="content">
+		<h:form prependId="false">
+			<h:panelGroup layout="block">
+				<h:outputText value="Ajax: " />
+				<p:selectBooleanCheckbox value="#{checkboxBean.value1}">
+					<p:ajax update="wrapperPanel" listener="#{checkboxBean.checkValue}" />
+				</p:selectBooleanCheckbox>
+			</h:panelGroup>
+
+			<h:panelGroup layout="block" id="wrapperPanel">
+				<h:panelGroup layout="block" id="checkboxValueTestPanel"
+					rendered="#{checkboxBean.value1}">
+					<h:outputText value="Value: " />
+					<h:outputText value="#{checkboxBean.value1}"></h:outputText>
+				</h:panelGroup>
+			</h:panelGroup>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Custom converter for h:selectOneMenu</title>
+</h:head>
+<h:body>
+
+	<h2>JSF action listener example</h2>
+	<h:form id="actionForm">
+
+	<h:panelGroup id="newSet" layout="block">
+		<h:outputLabel value="Name:"/>
+		<h:inputText value="#{beersBean.name}" ></h:inputText>
+	</h:panelGroup>
+
+	<h:panelGroup layout="block">
+	
+		<h:commandButton value="new user" action="#{beersBean.newName}" update="actionForm"></h:commandButton>
+	
+		<p:commandLink update="actionForm">Set name
+			<f:setPropertyActionListener value="Ivan" target="#{beersBean.name}"></f:setPropertyActionListener>
+		</p:commandLink>
+	</h:panelGroup>
+		
+
+<!-- 			        <h:panelGrid columns="2"> -->
+<!-- 			            <h:outputLabel value="Favorite beer:"/> -->
+
+<!-- 			            <h:selectOneMenu value="#{beersBean.selectedBeer}" converter="beerConverter"> -->
+<!-- 			                <f:selectItems value="#{beersBean.beers}" var="beer" -->
+<!-- 			                               itemValue="#{beer}" -->
+<!-- 			                               itemLabel="#{beer.brand}"/> -->
+<!-- 			            </h:selectOneMenu> -->
+
+<!-- 			            <h:commandButton value="submit" action="result"/> -->
+<!-- 			        </h:panelGrid> -->
+	</h:form>
+
+</h:body>
+</html>
