@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration>
-  <!-- statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" /-->
 
-  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">  	
-    <encoder>
-      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-    </encoder>
-  </appender>
-       	
-	<root level="DEBUG">
-	  	<appender-ref ref="STDOUT"/>
-	</root>
+	<property resource="logback.properties" />
+
+	<if condition='property("MODE").equals("prod")'>
+		<then>
+			<include resource="logback-prod.xml" />
+		</then>
+	</if>
+	<if condition='property("MODE").equals("dev")'>
+		<then>
+			<include resource="logback-dev.xml" />
+		</then>
+	</if>
+
 </configuration>
