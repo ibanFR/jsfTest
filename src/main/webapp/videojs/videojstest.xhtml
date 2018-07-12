@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/default_template.html">
+	<ui:define name="head">
+	    <link href="#{request.contextPath}/resources/css/video-js.css" rel="stylesheet"/>
+	    <script src="#{request.contextPath}/resources/js/video.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	</ui:define>
+	
+	<ui:define name="content">
+	   <video id="vid0" class="video-js" controls="true">
+<!-- 		  <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4"/> -->
+<!-- 			<source src="#{request.contextPath}/resources/video/s1.mp4" type="video/mp4"/> -->
+		</video>
+		
+		<script type="text/javascript">
+			
+			jQuery(document).ready(function(){
+				alert("document ready");
+				var player = videojs('vid0');
+				player.src({type: "video/mp4", src: "#{request.contextPath}/etu_sims/Sim68/s1.mp4"});
+			});
+		
+		</script>
+		
+	</ui:define>
+	
+	
+	
+</ui:composition>
+</html>
