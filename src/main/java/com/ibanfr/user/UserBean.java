@@ -45,6 +45,18 @@ public class UserBean {
 		
 		logger.debug(APPEND_IBANFR, "Append some text to the log File");
 		
+		findUsers();
+		
+	}
+	
+	
+	public void searchUsers() {
+		findUsers();
+	}
+	
+	
+	
+	private void findUsers() {
 		try {
 
 			UserManager5 manager = new UserManager5();

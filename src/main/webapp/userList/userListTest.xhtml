@@ -9,13 +9,19 @@
 
 <ui:composition template="/default_template.html">
 	<ui:define name="content">
-	
-		<ul>
-			<ui:repeat var="user" value="#{userBean.users}">
-				<li><h:outputText value="#{user.toString()}"></h:outputText> </li>
-			</ui:repeat>
-		</ul>
 
+		<h:panelGroup id="userPanel" layout="block">
+			<ul>
+				<ui:repeat var="user" value="#{userBean.users}">
+					<li><h:outputText value="#{user.toString()}"></h:outputText></li>
+				</ui:repeat>
+			</ul>
+		</h:panelGroup>
+			
+	<h:form>
+		<p:commandButton value="Search Users" action="#{userBean.searchUsers}" update="userPanel"></p:commandButton>
+	</h:form>
+	
 	</ui:define>
 </ui:composition>
 </html>
