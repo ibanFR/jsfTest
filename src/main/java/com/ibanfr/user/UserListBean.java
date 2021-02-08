@@ -8,6 +8,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,10 +24,10 @@ import com.ibanfr.manager.UserManager5;
  *
  */
 @ManagedBean
-@SessionScoped
-public class UserBean {
+@ViewScoped
+public class UserListBean {
 	
-	private static final Logger logger = LoggerFactory.getLogger(UserBean.class);
+	private static final Logger logger = LoggerFactory.getLogger(UserListBean.class);
 	
 	private static Marker APPEND_IBANFR = MarkerFactory.getMarker("APPEND_IBANFR");
 	
