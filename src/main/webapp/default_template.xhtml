@@ -11,6 +11,7 @@
   <title><ui:insert name="title">Default title</ui:insert></title>
   
   <ui:insert name="head"></ui:insert>
+
   <link type="text/css" rel="stylesheet" href="#{request.contextPath}/resources/css/styles.css"/>
 </h:head>
 
@@ -27,8 +28,9 @@
 
 
 <div id="content">
-  <p:growl id="growl" showDetail="true" ></p:growl>
+  <p:growl id="growl" showDetail="true"></p:growl>
   <ui:insert name="content">
+
     	Content area.  See comments below this line in the source.
     	<!--  include your content file or uncomment the include below and create content.xhtml in this directory -->
 	  	<!-- <div> -->

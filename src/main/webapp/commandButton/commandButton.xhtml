@@ -11,20 +11,14 @@
 
 	<ui:define name="content">
 		<h:form prependId="false">
+			<h:outputText value="Button: " />
+				<h:commandButton>
+					<h:panelGroup class="spanchoice1">click me</h:panelGroup>
+				</h:commandButton>
 			<h:panelGroup layout="block">
-				<h:outputText value="Ajax: " />
-				<p:selectBooleanCheckbox value="#{checkboxBean.value1}">
-					<p:ajax update="wrapperPanel" listener="#{checkboxBean.checkValue}" />
-				</p:selectBooleanCheckbox>
-			</h:panelGroup>
-
-			<h:panelGroup layout="block" id="wrapperPanel">
-				<h:panelGroup layout="block" id="checkboxValueTestPanel"
-					rendered="#{checkboxBean.value1}">
-					<h:outputText value="Value: " />
-					<h:outputText value="#{checkboxBean.value1}"></h:outputText>
-				</h:panelGroup>
-			</h:panelGroup>
+				<p:commandButton><em>some text</em></p:commandButton>
+			
+			</h:panelGroup>			
 		</h:form>
 	</ui:define>
 
