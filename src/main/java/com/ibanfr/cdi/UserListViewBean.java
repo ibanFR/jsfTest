@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.ibanfr.cdi.test;
+package com.ibanfr.cdi;
 
 import com.ibanfr.hibernate.model.User;
 import com.ibanfr.manager.UserManager;

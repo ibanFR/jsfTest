@@ -47,7 +47,7 @@
 		</encoder>
 	</appender>
 
-
+	<logger name="org.hibernate" level="ERROR" />
 
 	<root level="${logLevel}">
 		<appender-ref ref="STDOUT" />
