@@ -28,4 +28,10 @@
         <url-pattern>*.jsf</url-pattern>
     </servlet-mapping>
 
+    <!-- Custom error page for exception type org.jboss.weld.contexts.NonexistentConversationException -->
+    <error-page>
+        <exception-type>org.jboss.weld.contexts.NonexistentConversationException</exception-type>
+        <location>/error.xhtml?nocid=true</location>
+    </error-page>
+
 </web-app>

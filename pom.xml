@@ -10,7 +10,18 @@
 	<properties>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
+		<!-- JUnit 5 -->
 		<junit.jupiter.version>5.5.1</junit.jupiter.version>
+		<!-- JSF 2.3 -->
+		<jsf.version>2.3.14</jsf.version>
+		<jsf.weld.version>3.1.5.SP1</jsf.weld.version>
+		<jsf.weld.jandex.version>2.2.2.Final</jsf.weld.jandex.version>
+		<!-- Primefaces -->
+		<primefaces.version>8.0</primefaces.version>
+		<!-- tomcat 9 ==> EL 3.0 -->
+		<javax.el.version>3.0.0</javax.el.version>		
+		
+		<javax-servlet.version>4.0.1</javax-servlet.version>
 	</properties>
 
 	<profiles>
@@ -22,7 +33,9 @@
 						<artifactId>maven-war-plugin</artifactId>
 						<version>3.0.0</version>
 						<configuration>
-							<webappDirectory>${env.CATALINA_HOME}/webapps/jsf-test</webappDirectory>
+<!--							<webappDirectory>${env.CATALINA_HOME}/webapps/jsf-test</webappDirectory>-->
+							<outputDirectory>${env.CATALINA_HOME}/webapps</outputDirectory>
+							<warName>jsf-test</warName>
 						</configuration>
 					</plugin>
 				</plugins>
@@ -33,58 +46,65 @@
 	
 	<build>
 		<plugins>
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>3.0.0</version>
-				<configuration>
-					<packagingExcludes>
-                        WEB-INF/classes/logback-test.xml
-                    </packagingExcludes>
-				</configuration>
-			</plugin>
+<!--			<plugin>-->
+<!--				<artifactId>maven-war-plugin</artifactId>-->
+<!--				<version>3.0.0</version>-->
+<!--				<configuration>-->
+<!--					<packagingExcludes>-->
+<!--                        WEB-INF/classes/logback-test.xml-->
+<!--                    </packagingExcludes>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
 		</plugins>
 	</build>
 
 	<dependencies>
-		<!-- Junit 5 -->
+	
+		<!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl-api -->
 		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
-			<version>${junit.jupiter.version}</version>
-			<scope>test</scope>
+			<groupId>javax.servlet.jsp.jstl</groupId>
+			<artifactId>jstl-api</artifactId>
+			<version>1.2</version>
 		</dependency>
+	
+		<!-- https://mvnrepository.com/artifact/javax.el/javax.el-api tomcat9 ==> 
+			EL 3.0 This should be used as "provided" -->
 		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-api</artifactId>
-			<version>${junit.jupiter.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<!-- java ee api -->
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-			<version>7.0</version>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+			<version>${javax.el.version}</version>
 			<scope>provided</scope>
 		</dependency>
-
-		<!-- JSF api and impl -->
-		<dependency>
-			<groupId>com.sun.faces</groupId>
-			<artifactId>jsf-api</artifactId>
-			<version>2.2.12</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.faces</groupId>
-			<artifactId>jsf-impl</artifactId>
-			<version>2.2.12</version>
-		</dependency>
-
+		
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
+			<version>${javax-servlet.version}</version>
 			<scope>provided</scope>
 		</dependency>
+	
+		<!-- ===== JSF 2.3 (start) ===== -->
+		<!-- Mojarra JSF 2.3 implementation -->
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>jakarta.faces</artifactId>
+			<version>${jsf.version}</version>
+		</dependency>
+	
+		<!-- Weld CDI Implementation -->
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet-shaded</artifactId>
+			<version>${jsf.weld.version}</version>
+		</dependency>
+		<!-- (With Weld CDI) Jandex library -->
+		<dependency>
+			<groupId>org.jboss</groupId>
+			<artifactId>jandex</artifactId>
+			<version>${jsf.weld.jandex.version}</version>
+		</dependency>
+		<!-- ===== JSF 2.3 (end) ===== -->
+			
 		<!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
 		<dependency>
 			<groupId>org.primefaces</groupId>
@@ -160,6 +180,19 @@
 			<groupId>org.codehaus.janino</groupId>
 			<artifactId>janino</artifactId>
 			<version>3.0.8</version>
+		</dependency>
+		<!-- Junit 5 -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>
