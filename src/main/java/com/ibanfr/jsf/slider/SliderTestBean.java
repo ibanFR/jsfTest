@@ -35,7 +35,7 @@ public class SliderTestBean {
 	}
 	
 	public void onSlideEnd(SlideEndEvent event) {
-		int value = event.getValue();
+		int value = (int) event.getValue();
 		//add faces message
 		FacesMessage msg = new FacesMessage("OnSlideEventEn", "OnSlideEventEn value "+value);  
         FacesContext.getCurrentInstance().addMessage(null, msg);
