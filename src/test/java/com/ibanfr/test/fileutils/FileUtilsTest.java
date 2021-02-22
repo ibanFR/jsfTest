@@ -9,7 +9,7 @@ import java.io.FileFilter;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.FileFilterUtils;
 import org.apache.commons.io.filefilter.IOFileFilter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class FileUtilsTest {
 	
