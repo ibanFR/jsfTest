@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.ibanfr.hibernate.model.User;
-import com.ibanfr.manager.UserManager5;
+import com.ibanfr.manager.UserManager;
 
 @ManagedBean
 @ViewScoped
@@ -19,16 +19,16 @@ public class UserDetailsBean {
 	
 	private User user;
 	
-	private UserManager5 userManager;
-	
-	
+	private UserManager userManager;
 
 	
 	/**
+	 * Bean Constructor.
+	 * <p>
 	 * 
 	 */
 	public UserDetailsBean() {
-		userManager = new UserManager5();
+		userManager = new UserManager();
 	}
 	
 	
@@ -61,6 +61,11 @@ public class UserDetailsBean {
 	}
 	
 
+	/**
+	 * Action method to find User by user identifier.
+	 * <p>
+	 * 
+	 */
 	public void findUserById() {
 		logger.debug("userId={}", userId);
 		setUser(userManager.findUserbyId(userId));

@@ -16,7 +16,7 @@ import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
 
 import com.ibanfr.hibernate.model.User;
-import com.ibanfr.manager.UserManager5;
+import com.ibanfr.manager.UserManager;
 
 
 /**
@@ -60,7 +60,7 @@ public class UserListBean {
 	private void findUsers() {
 		try {
 
-			UserManager5 manager = new UserManager5();
+			UserManager manager = new UserManager();
 			setUsers(manager.listAllUsers());
 				
 		}catch(Exception e) {
