@@ -1,9 +1,5 @@
-/**
- * 
- */
 package com.ibanfr.cdi.test;
 
-import com.ibanfr.cdi.UserListConversationBean;
 import com.ibanfr.manager.UserManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,10 +23,6 @@ import java.io.Serializable;
 @ViewScoped
 public class UserDetailViewBean implements Serializable {
 
-	/**
-	 * Auto generated serialVersionUIDß
-	 */
-	private static final long serialVersionUID = -3227091326241413961L;
 
 	private final static Logger logger = LoggerFactory.getLogger(UserDetailViewBean.class);
 
