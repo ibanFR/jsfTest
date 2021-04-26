@@ -14,7 +14,7 @@
 			<h3>Inplace test</h3>
 <!-- 			<p:inplace editor="true"> -->
 <!-- 				<p:ajax event="save" listener="{inplaceTestBean.handleSaveSectionNameEvent}" -->
-<!-- 					update="@this growl" /> -->
+<!-- 					update="@this messages" /> -->
 <!-- 				<h:inputText value="#{inplaceTestBean.name}" /> -->
 <!-- 			</p:inplace> -->
 			<p:inplace id="name2" editor="true"
@@ -22,7 +22,7 @@
 				disabled="#{inplaceTestBean.readOnlyMode ? true : false}">
 				<p:ajax event="save"
 					listener="#{inplaceTestBean.handleSaveSectionNameEvent}"
-					update="@this growl"></p:ajax>
+					update="@this messages"></p:ajax>
 				<p:inputText value="#{inplaceTestBean.name}" label="text"
 					width="100%" required="true" maxlength="59"
 					requiredMessage="Section name is required." widgetVar="sectionname" />
