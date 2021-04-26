@@ -55,6 +55,27 @@
 <!--                    </packagingExcludes>-->
 <!--				</configuration>-->
 <!--			</plugin>-->
+
+
+<!--			Uncomment code below and run mvn validate from terminal to check maven properties values. -->
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-antrun-plugin</artifactId>-->
+<!--				<version>3.0.0</version>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<phase>validate</phase>-->
+<!--						<goals>-->
+<!--							<goal>run</goal>-->
+<!--						</goals>-->
+<!--						<configuration>-->
+<!--							<target>-->
+<!--								<echoproperties/>-->
+<!--							</target>-->
+<!--						</configuration>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
 		</plugins>
 	</build>
 
