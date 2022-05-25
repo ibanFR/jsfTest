@@ -17,7 +17,7 @@
 		<jsf.weld.version>3.1.5.SP1</jsf.weld.version>
 		<jsf.weld.jandex.version>2.2.2.Final</jsf.weld.jandex.version>
 		<!-- Primefaces -->
-		<primefaces.version>8.0</primefaces.version>
+		<primefaces.version>11.0.0</primefaces.version>
 		<!-- tomcat 9 ==> EL 3.0 -->
 		<javax.el.version>3.0.0</javax.el.version>		
 		
@@ -130,7 +130,7 @@
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>7.0</version>
+			<version>${primefaces.version}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
 		<dependency>
