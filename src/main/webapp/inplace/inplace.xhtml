@@ -2,16 +2,21 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:menubar="http://java.sun.com/jsf/composite/menubar">
 
 <ui:composition template="/default_template.xhtml">
 
+	<ui:define name="content_header">
+		<menubar:menu activeLink="inplace"></menubar:menu>
+	</ui:define>
+
 	<ui:define name="content">
 		<h:form prependId="false">
-			<h3>Inplace test</h3>
+			<h3>Inplace test with ajax behavior event</h3>
 <!-- 			<p:inplace editor="true"> -->
 <!-- 				<p:ajax event="save" listener="{inplaceTestBean.handleSaveSectionNameEvent}" -->
 <!-- 					update="@this messages" /> -->
@@ -22,12 +27,91 @@
 				disabled="#{inplaceTestBean.readOnlyMode ? true : false}">
 				<p:ajax event="save"
 					listener="#{inplaceTestBean.handleSaveSectionNameEvent}"
-					update="@this messages"></p:ajax>
+					update="@this"></p:ajax>
+
 				<p:inputText value="#{inplaceTestBean.name}" label="text"
-					width="100%" required="true" maxlength="59"
-					requiredMessage="Section name is required." widgetVar="sectionname" />
+							 width="100%" required="true" maxlength="59"
+							 requiredMessage="Section name is required." widgetVar="sectionname">
+
+					<p:ajax listener="#{inplaceTestBean.ajaxListener}"></p:ajax>
+
+				</p:inputText>
 			</p:inplace>
 		</h:form>
+
+		<h:form id="form2" prependId="false">
+			<h3>Inplace test with valueChangeListener for nested inputtext</h3>
+			<!-- 			<p:inplace editor="true"> -->
+			<!-- 				<p:ajax event="save" listener="{inplaceTestBean.handleSaveSectionNameEvent}" -->
+			<!-- 					update="@this messages" /> -->
+			<!-- 				<h:inputText value="#{inplaceTestBean.name}" /> -->
+			<!-- 			</p:inplace> -->
+			<p:inplace id="name3" editor="true"
+					   emptyLabel="Click to enter Section name (required)"
+					   disabled="#{inplaceTestBean.readOnlyMode ? true : false}" rendered="true">
+				<p:ajax event="save"
+						listener="#{inplaceTestBean.handleSaveSectionNameEvent}"
+						update="@this"></p:ajax>
+
+
+				<p:inputText value="#{inplaceTestBean.name}" label="text"
+							 width="100%" required="true" maxlength="59"
+							 requiredMessage="Section name is required." widgetVar="sectionname"
+							 valueChangeListener="#{inplaceTestBean.inputChangedListener}">
+					<p:ajax/>
+				</p:inputText>
+			</p:inplace>
+
+		</h:form>
+
+		<h:form id="form3">
+			<h3>Inplace test with cancel ajax event for nested inputtext</h3>
+			<!-- 			<p:inplace editor="true"> -->
+			<!-- 				<p:ajax event="save" listener="{inplaceTestBean.handleSaveSectionNameEvent}" -->
+			<!-- 					update="@this messages" /> -->
+			<!-- 				<h:inputText value="#{inplaceTestBean.name}" /> -->
+			<!-- 			</p:inplace> -->
+			<p:inplace id="name3" editor="true"
+					   emptyLabel="Click to enter name (required)"
+					   disabled="#{inplaceTestBean.readOnlyMode ? true : false}" rendered="true">
+				<p:ajax event="save"
+						listener="#{inplaceTestBean.handleSaveSectionNameEvent}"
+						update="@this"></p:ajax>
+
+				<p:ajax event="cancel"
+						listener="#{inplaceTestBean.cancelEvent}"
+						update="@this"></p:ajax>
+
+				<p:inputText value="#{inplaceTestBean.name}" label="text"
+							 width="100%" required="true" maxlength="59"
+							 requiredMessage="Section name is required." widgetVar="sectionname">
+				</p:inputText>
+			</p:inplace>
+
+		</h:form>
+
+		<h:form>
+
+			<h3>inputText with valueChangeListener</h3>
+
+			<h:panelGrid columns="2">
+				<p:outputLabel for="textInput" value="Input Text"></p:outputLabel>
+				<p:inputText id="textInput" value="#{inplaceTestBean.name}"
+							 valueChangeListener="#{inplaceTestBean.inputChangedListener}">
+					<p:ajax/>
+
+				</p:inputText>
+
+			</h:panelGrid>
+		</h:form>
+
+		<h:form>
+			<h3>Separate form to submit values</h3>
+			<p:commandButton value="Click me" action="#{inplaceTestBean.submitForm}" update=":form2"> </p:commandButton>
+
+
+		</h:form>
+
 	</ui:define>
 
 </ui:composition>

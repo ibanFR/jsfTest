@@ -44,11 +44,18 @@
 		<p:toolbar>
 			<f:facet name="left">
 				<ul class="mainmenulist">
+					<li><h:link value="session" id="session"
+								outcome="/session/session.jsf"
+								styleClass="mainmenulink #{component.id eq cc.attrs.activeLink ? 'active' : ''}"></h:link></li>
 					<li><h:link value="user list" id="userList"
 							outcome="/cdi/userListView.jsf"
 							styleClass="mainmenulink #{component.id eq cc.attrs.activeLink ? 'active' : ''}"></h:link></li>
 					<li><h:link value="tabs" id="tabs" outcome="/tabs/tabs.jsf"
 							styleClass="mainmenulink #{component.id eq cc.attrs.activeLink ? 'active' : ''}"></h:link></li>
+					<li><h:link value="forms" id="forms" outcome="/forms/index.jsf"
+								styleClass="mainmenulink #{component.id eq cc.attrs.activeLink ? 'active' : ''}"></h:link></li>
+					<li><h:link value="inplace" id="inplace" outcome="/inplace/inplace.jsf"
+								styleClass="mainmenulink #{component.id eq cc.attrs.activeLink ? 'active' : ''}"></h:link></li>
 				</ul>
 			</f:facet>
 			<f:facet name="right">
