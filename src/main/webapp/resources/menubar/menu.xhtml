@@ -11,42 +11,13 @@
 <body>
 
 	<composite:interface>
-		<!-- 	<composite:attribute name="dashboards" required="true"/> -->
 		<composite:attribute name="activeLink" />
 	</composite:interface>
 
 	<composite:implementation>
-
-		<!-- 		<h2> -->
-		<!-- 			<ul class="sectionmenu noprint"> -->
-		<!-- 				<li class="listtitle">Dashboards:</li> -->
-		<!-- 				<li><i class="fa fa-bars" aria-hidden="true"></i> -->
-		<!-- 					<ul class="dn"> -->
-		<!-- 						<li class="title">Analytics Dashboard Menu</li> -->
-		<!-- 						<ui:repeat var="dashboard" -->
-		<!-- 							value="#{cc.attrs.dashboards}"> -->
-		<!-- 							<li class="#{cc.attrs.selectedDashboard==dashboard.label? 'selected' : ''}"><a href="/etu/admin/#{dashboard.url}?faces-redirect=true"><span>#{labels[dashboard.label]}</span> -->
-		<!-- 									<i class="fa #{dashboard.icon}" aria-hidden="true"></i></a></li> -->
-		<!-- 						</ui:repeat> -->
-
-		<!-- 					</ul></li> -->
-		<!-- 			</ul> -->
-
-		<!-- 			<ui:repeat var="dashboard" value="#{cc.attrs.dashboards}"> -->
-		<!-- 				<p:commandLink  action="adminHomeNew.jsf?faces-redirect=true" rendered="#{cc.attrs.selectedDashboard==dashboard.label}" styleClass="coursebacklink"> -->
-		<!-- 					<i class="fa fa-angle-left dinline marginright10 noprint"></i> -->
-		<!-- 					<i class="fa #{dashboard.icon} marginright10"></i> -->
-		<!-- 					<h:outputText value="#{labels[dashboard.label]}" /> -->
-		<!-- 				</p:commandLink> -->
-		<!-- 			</ui:repeat> -->
-		<!-- 		</h2> -->
-
 		<p:toolbar>
 			<f:facet name="left">
 				<ul class="mainmenulist">
-					<li><h:link value="session" id="session"
-								outcome="/session/session.jsf"
-								styleClass="mainmenulink #{component.id eq cc.attrs.activeLink ? 'active' : ''}"></h:link></li>
 					<li><h:link value="user list" id="userList"
 							outcome="/cdi/userListView.jsf"
 							styleClass="mainmenulink #{component.id eq cc.attrs.activeLink ? 'active' : ''}"></h:link></li>
