@@ -7,7 +7,6 @@
 	xmlns:composite="http://java.sun.com/jsf/composite"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<head></head>
 <body>
 
 	<composite:interface>
@@ -18,6 +17,9 @@
 		<p:toolbar>
 			<f:facet name="left">
 				<ul class="mainmenulist">
+					<li><h:link value="command button" id="button"
+								outcome="/button/commandButton.jsf"
+								styleClass="mainmenulink #{component.id eq cc.attrs.activeLink ? 'active' : ''}"></h:link></li>
 					<li><h:link value="user list" id="userList"
 							outcome="/cdi/userListView.jsf"
 							styleClass="mainmenulink #{component.id eq cc.attrs.activeLink ? 'active' : ''}"></h:link></li>
